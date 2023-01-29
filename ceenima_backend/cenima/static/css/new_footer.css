@@ -1,0 +1,67 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #383838;
+}
+#footer{
+    display: flex;
+    background-color: #383838;
+}
+.logo-area{
+    width: 25%;
+}
+.company-area{
+    width: 25%;
+}
+.contact-area{
+    width: 25%;
+}
+.social-media{
+    width: 25%;
+}
+.logo-text{
+    font-family: Avenir Next Cyr;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #F3EFEF;
+    position: relative;
+    top: -40px;
+    left: 50px;
+  }
+  #lower-text{
+    margin-top:30px;
+    color: #F3EFEF;
+  }
+  .social-media{
+   
+  }
+  #ig-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  #fb-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  #twitter-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  .media{
+    display: flex;
+  }
+  p{
+    color: #F3EFEF;
+  }
+  h3{
+    color: #F3EFEF;
+  }

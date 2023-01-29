@@ -1,0 +1,363 @@
+body{
+    margin:0px;
+    paddding: 0px;
+}
+/** Navbar**/
+.navbar{
+    /* width: 95%; */
+    margin: auto;
+    
+    display: flex;
+    height: 101px;
+    
+    top: 57px;
+    border-radius: 0px;
+    padding: 20px 0px 20px 0px;
+    background-color: #2b2b2b;
+  }
+  
+  .logo{
+    width: 20%;
+  }
+  
+  .navigations{
+    width: 60%;
+    display: flex;
+    padding-right: 30px;
+  }
+  .navigations a{
+    position: relative;
+    top: 40%;
+    color: #F3EFEF;
+    padding-right: 50px;
+  }
+  
+  .logo-text{
+    font-family: Avenir Next Cyr;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #F3EFEF;
+    position: relative;
+    top: -40px;
+    left: 50px;
+  }
+  
+  .routes{
+    display: flex;
+    position: relative;
+    top: 20%;
+    
+  }
+  .cart{
+    display: flex;
+    padding-left: 50px;
+    color: #F3EFEF;
+  }
+  
+  .sign-in{
+    color: #F3EFEF;
+  
+  }
+  .carousel{
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .carousel img{
+    width: 100%;
+  }
+
+  /**End**/
+
+.movie{
+    background-color: #18181A;
+    display: flex;
+    height: 100vh;
+}
+.about-section{
+    width: 50%;
+    height: 80%;
+}
+.image-section{
+    width: 50%;
+    height: 80%;
+  
+}
+
+.img-cont{
+    height: 80%;
+    border-radius: 20px;
+   
+}
+.title{
+    font-family: Avenir Next Cyr;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+    margin-left:50px;
+}
+.genre{
+    position: relative;
+    top: 156;
+    font-family: Avenir Next Cyr;
+    font-size: 20px;
+    font-weight: 750;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+    margin-left:50px;
+}
+.summary{
+    width: 595px;
+
+    left: 0px;
+    font-family: 'Avenir Next Cyr';
+    font-style: normal;
+    font-weight: 450;
+    font-size: 20px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    margin-left:50px;
+}
+#get-ticket-btn{
+    margin-top: 50px;
+    width: 150px;
+    height: 50px;
+    left: 0px;
+    background: #D9A92E;
+    border-radius: 10px;
+    margin-left:50px;
+}
+#pay-button{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    left: 0px;
+    top: -40px;
+    border-radius: 10px;
+    margin-left:50px;
+    color: #D9A92E;
+    border-color: #D9A92E;
+}
+.book-a-ticket{
+    position: absolute;
+    width: 1222px;
+    height: 940px;
+    left: 97px;
+    top: 53px;
+    display:flex;
+    background: linear-gradient(180deg, #070707 0%, rgba(7, 7, 7, 0.8) 100%);
+    border-radius: 20px;
+    display:none;
+}
+.left{
+    width:85%;
+}
+.right{
+   
+}
+.confirm{
+    justify-content:center;
+    width:95%;
+    border-radius:solid;
+}
+.pee{
+    color:#D9A92E;
+    text-align:left;
+    position: relative;
+    width: 172px;
+    height: 22px;
+    left: 35px;
+    top: 75px;
+    
+}
+.view{
+    color: #ffffff;
+    position: relative;
+    left: 35px;
+    top: 90px;
+}
+.times{
+    color: #ffffff;
+    position: relative;
+    left: 35px;
+    top: 20px;
+}
+.text{
+    color: #ffffff;
+    position: relative;
+    left: 5px;
+    top: 20px;
+}
+.box-text{
+    color: #Dfffff;
+    position: relative;
+    left: 20px;
+    top: 6px;
+}
+.viewing-date{
+    display:flex;
+    margin-bottom: 40px;
+}
+.viewing-time{
+    display:flex;
+}
+.dates{
+    width: 20%;
+    border-style:solid;
+    border-radius:20px;
+    width: 113px;
+    height: 80px;
+    left: 263px;
+    border-color: #D9A92E;
+    margin-left:10px;
+    margin-top :120px;
+}
+.time{
+    width: 20%;
+    border-style:solid;
+    border-radius:20px;
+    width: 113px;
+    height: 50px;
+    left: 263px;
+    border-color: #D9A92E;
+    margin-left:10px;
+    margin-top :40px;
+}
+.no-of-tickets{
+    color:#D9A92E;
+    position: relative;
+    left: 35px;
+    margin-bottom: 50px;
+}
+#child-tickets{
+    margin-bottom: 20px;
+}
+.tickets{
+    position: relative;
+    left: 70px;
+    height: 30px;
+    top: 5px;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+#form{
+    display: flex;
+}
+.form-left{
+    width: 60%;
+}
+.form-right{
+    width:40%;
+    margin-right:60px;
+}
+.name{
+   position :relative;
+   left: 50px;
+}
+.email{
+    position :relative;
+    left: 50px;
+    margin-left: 50px;
+ }
+.phone-no{
+    position :relative;
+    left: 50px;
+    top: -10px;
+ }
+input{
+    height: 30px;
+    background-color: #535455;
+    border-radius: 7px;
+    text-color: #ffffff;
+}
+.input-text{
+    margin-top:30px;
+}
+.symbol{
+    position: relative;
+    color:#D9A92E;
+    top: -10px;
+}
+#close-tag{
+    position: relative;
+    float:right;
+    margin-right:25px;
+    margin-top: 30px;
+    height: 30px;
+
+}
+
+
+#footer{
+    display: flex;
+    background-color: #383838;
+}
+.logo-area{
+    width: 25%;
+}
+.company-area{
+    width: 25%;
+}
+.contact-area{
+    width: 25%;
+}
+.social-media{
+    width: 25%;
+}
+.logo-text{
+    font-family: Avenir Next Cyr;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 61px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #F3EFEF;
+    position: relative;
+    top: -40px;
+    left: 50px;
+  }
+  #lower-text{
+    margin-top:30px;
+    color: #F3EFEF;
+  }
+  .social-media{
+   
+  }
+  #ig-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  #fb-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  #twitter-logo{
+    border-style:solid;
+    width: 15%;
+    height: 30px;
+    margin-right:5px;
+  }
+  .media{
+    display: flex;
+  }
+  p{
+    color: #F3EFEF;
+  }
+  h3{
+    color: #F3EFEF;
+  }

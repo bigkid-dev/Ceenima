@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+{% extends 'cenima/navbar.html' %}
+{% block show %}
+<style>
+    .hero{
+        height: 100vh;
+        
+      }
+    .carousel{
+        filter: grayscale(100%);
+      }
+    #show-section{
+        margin-top: 10px;
+        background-color: #18181A;
+        padding-top: 50px;
+      }
+      
+    .date-showing{
+    display: flex;
+    width: 40%;   
+    height: 100px;
+    
+    }
+    .date-box{
+    width: 20%;
+    border-style: solid;
+    border-color:#F3EFEF;
+    height: 70px;
+    border-radius: 15px;
+    margin-right: 10px;
+    }
+    .top{
+    display: flex;
+    margin-bottom: 50px;
+    }
+    .below{
+    display: flex;
+    }
+    .showing{
+    display: flex;
+    width: 50%;
+    }
+    .img{
+    width: 50%;
+    height: 200px;
+    border-radius: 15px;
+    }
+    .about{
+    width: 50%;
+    }
+    .intro{
+    color:rgb(245, 194, 128);
+    
+    }
+    .title{
+    color: #F3EFEF;
+    }
+    .text{
+    color:#F3EFEF;     
+    }
+    #beautiful{
+        height: 100vh;
+        border-style: solid;
+        background-color: #18181A;
+        display: none;
+    }
+    #left{
+        width: 40%;
+        height: 100%;
+    }
+    #right{
+        width: 60%;
+        height: 100%;
+        
+    }
+    #wrap{
+        width: 100%;
+        display: flex;
+        height: 100%;
+    }
+    .up{
+        height: 50%;
+        
+        display: flex;
+    }
+    .low{
+        height: 50%;
+        
+        display: flex;
+    }
+    .first{
+        width: 90%;
+        margin-top: 100px;
+        height: 80%;
+    }
+    .first h2{
+        margin-bottom: 1.25rem;
+        font-family: proxima-nova,sans-serif;
+        font-size: 3rem;
+        font-weight: 600;
+        text-transform: none;
+        line-height: .8;
+        color:#F3EFEF;
+        margin-left: 100px;
+    }
+    #better{
+        color:#D9A92E;
+    }
+    .first h3{
+        margin-bottom: 1.25rem;
+        font-family: proxima-nova,sans-serif;
+        font-weight: 600;
+        text-transform: none;
+        line-height: .8;
+        color:#F3EFEF;
+        margin-left: 100px;
+    
+    }
+    .first button{
+        margin-top: 50px;
+        border-radius: 15px;
+        width:  200px;
+        height: 50px;
+        color:#F3EFEF;
+        margin-left: 100px;
+        background-color: #D9A92E;
+    }
+    .second{
+        width: 20%;
+        margin-left: 30px;
+        border-style: solid ;
+        height: 90%;
+    }
+    .third{
+        width: 20%;
+        margin-left: 30px;
+        border-style: solid ;
+        margin-top: 50px;
+        height: 80%;
+    }
+</style>
+<section>
+    <div class="hero">
+        <div class="carousel">
+            {% load static %}
+            <img src={% static 'assets/carousel_two.jpg' %}></img>
+        
+          </div>
+    </div>
+</section>
+<section id="beautiful" style="background-image: url({% static 'assets/background.jpg' %});">
+    <div id="wrap">
+        <div id="left">
+            <div class="first">
+                <h2 id="movie">MOVIES ARE</h2>
+                <h2 id="better">BETTER</h2>
+                <h3 id="screen">ON OUR SCREEN</h4>
+                <a href="Lists"><button id='ticket'>
+                    Get a ticket
+                </button></a>
+            </div>
+            
+        </div>
+        <div id="right">
+            <div class="up">
+                {% load static %}
+                {% comment %} <div class="first">
+                    <img src="{% static 'assets/crop 5(3).jpg ' %}" height="100%" width="100%">
+                </div>
+                <div class="second">
+                    <img src="{% static 'assets/crop3 (2).jpg' %}" height="100%" width="100%">
+                </div>
+                <div class="third">
+                    <img src="{% static 'assets/crop 4 (2).jpg' %}" height="100%" width="100%">
+                </div> {% endcomment %}
+            </div>
+            {% comment %} <div class="low">
+                <div class="first">
+                    <img src="{% static 'assets/crop 5 (2).jpg' %}" height="100%" width="100%">
+                </div>
+                <div class="second">
+                    <img src="{% static 'assets/crop3 (3).jpg' %}" height="100%" width="100%">
+                </div>
+                <div class="third">
+                    <img src="{% static 'assets/crop 4 (3).jpg' %}" height="100%" width="100%">
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</section>
+<section id="show-section">
+<div class="date-showing">
+    <div class="date-box"></div>
+    <div class="date-box"></div>
+    <div class="date-box"></div>
+    <div class="date-box"></div>
+</div>
+<div class="main-content">
+    
+    <div class="top">
+        {% for objects in one %}
+        <div class="showing">
+            <div class="img">
+                <img src="{{objects.image_link}}" height="100%" width="90%" style="border-radius: 20px;">
+            </div>
+            <div class="about">
+                <div>
+                    <h6 class="intro">2022 ACTION/ADVENTURE 2H 15MIN</h6>
+                    <p class="title">{{objects.title}}</p>
+                    <p class="text">{{objects.description}}</p>
+                </div>
+                <div class="time">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+        {% for objects in two %}
+        <div class="showing">
+            <div class="img">
+                <img src="{{objects.image_link}}" height="100%" width="90%" style="border-radius: 20px;">
+            </div>
+            <div class="about">
+                <div>
+                    <h6 class="intro">2022 ACTION/ADVENTURE 2H 15MIN</h6>
+                    <p class="title">Tad the lost explorer and the curse of mummy</p>
+                    <p class="text">Tad would love for his archeologist colleagues to accept him as one of their own, but he always messes everything up...</p>
+                </div>
+                <div class="time">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% for objects in three %}
+    <div class="below">
+        <div class="showing">
+            <div class="img">
+                <img src="{{objects.image_link}}" height="100%" width="90%" style="border-radius: 20px;">
+            </div>
+            <div class="about">
+                <div>
+                    <h6 class="intro">2022 ACTION/ADVENTURE 2H 15MIN</h6>
+                    <p class="title">{{objects.title}}</p>
+                    <p class="text">{{objects.description}}</p>
+                </div>
+                <div class="time">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+        {% for objects in four %}
+        <div class="showing">
+            <div class="img">
+                <img src="{{objects.image_link}}" height="100%" width="90%" style="border-radius: 20px;">
+            </div>
+            <div class="about">
+                <div>
+                    <h6 class="intro">2022 ACTION/ADVENTURE 2H 15MIN</h6>
+                    <p class="title">{{objects.title}}</p>
+                    <p class="text">{{objects.description}}</p>
+                </div>
+                <div class="time">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    
+           
+        
+</section> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script >
+    var t1 = new TimelineMax()
+    t1
+    .to("#movie", { x: -50, duration: 2, height: '10%'})
+    .to("#better", {x: -50, duration: 2, height: '10%'})
+    .to("#screen", {x: -50, duration: 1})
+    .to("#ticket", {x: -50, duration: 1})
+
+    const visibleContent = document.querySelector('.hero')
+    const imageBox = document.querySelector('.carousel')
+    const hiddenContent = document.querySelector('.person__content__hidden')
+    const section = document.querySelector('#beautiful')
+
+
+
+    var timeline = new TimelineMax()
+    timeline
+  //.set( hiddenContent, { height: 0 } ) //<-- Moved to a fromTo, line 15
+    .to(visibleContent, 1, {duration:5 })
+    .to(visibleContent, 1, { x: 20, duration:5, opacity: 0, ease: Expo.easeInOut, display: 'none' })
+    .to(section, {display:'block'})
+    .to(carousel, 1.1, { filter: 'grayscale(0%)', width: '100%', ease: Expo.easeInOut }, '-=0.5')
+    .fromTo(hiddenContent, 0.5, { height: 0 }, { height: ( hiddenContent.clientHeight + 20 ) + 'px'}) // <---- here, this is the
+                                                                                    // real height because we 
+                                                                                    // haven't played the timeline yet
+    .fromTo(hiddenContent,1,{ y: 40 },{ y: 0, opacity: 1, ease: Expo.easeInOut },'-=0.5');
+</script>
+{% endblock show %}
+</html>

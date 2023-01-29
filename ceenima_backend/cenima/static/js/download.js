@@ -1,0 +1,1 @@
+alert("your tickets are ready")

@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add meta tags for mobile and IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> PayPal Checkout Integration | Client Demo </title>
+    {% load static %}
+    <link rel="stylesheet" href={% static 'css/payments.css' %}>
+</head>
+<style>
+    #submit-button{
+        margin-top: 30px;
+        display: none;
+      }
+    .about-payments{
+        width: 50%;
+        margin: auto;
+        height: 200px;
+        border-style: solid;
+        background-color: #18181A;
+        border-radius: 20px;
+    }
+    .price-detail{
+        display: flex;
+        width: 50%;
+        margin: auto;
+    }
+    h3{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    input{
+        height: 30px;
+        width: 100%;
+    }
+</style>
+<body>
+    {% for pay in pay %}
+    <div class="navbar">
+        <div class="logo">
+            <p class='logo-text'>Ceenima</p>
+        </div>
+        <div class="navigations">
+            <a>Get Tickets</a>
+            <a>Membership</a>
+            <a>Booking & Events</a>
+            <a>About Us</a>
+            <a>Prices & Promos</a>
+        </div>
+        <div class='routes'>
+            <div class ='signIn'>
+                <p class='sign-in'>Sign In</p>
+            </div>
+            <div class='cart'>
+                <div >
+                    <img></img>
+                </div>
+                <div>
+                    <p>Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Set up a container element for the button -->
+    <div class="paypal">
+        <div id="paypal-button-container"></div>
+
+        <!-- Include the PayPal JavaScript SDK -->
+        
+    </div>
+    <div class="about-payments">
+        <div class="price-detail">
+            <div>
+                <h3>Transaction Details</h3>
+            </div>
+        </div>
+        <div class="price-detail">
+            <div>
+                <h3>Price :</h3>
+            </div>
+            <div>
+                <h3 id="payments">{{pay.price}}</h3>
+            </div>
+        </div>
+        <div class="price-detail">
+            <div>
+                <h3>Quantity :  1</h3>
+            </div>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div id="submit-button">
+                
+                <a href="" ><input type="submit" value="proceed to downloads" ></a>
+            </div>
+        </form>
+    </div>
+
+    <section id="footer">
+        <div class="logo-area">
+            <p class='logo-text'>Ceenima</p>
+            
+        </div>
+        <div class="company-area">
+            <h3>COMPANY</h3>
+            <p>About us</p>
+            <p>Ticket sales and online booking</p>
+            <p>Cinemas</p>
+            <h3 id="lower-text">Legal</h3>
+            <p>Privacy Policy</p>
+        </div>
+        <div class="contact-area">
+            <h3>CONTACT</h3>
+            <p>Self Help</p>
+            <p>Contact Us</p>
+            <p>Advertise With us</p>
+        </div>
+        <div class="social-media">
+            <div>
+                <h3>FOLLOW US ON</h3>
+            </div>
+            <div class="media">
+                <div id="ig-logo">
+                </div> 
+                <div id="fb-logo">
+                </div> 
+                <div id="twitter-logo">
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    {% endfor %}
+    <script src="https://www.paypal.com/sdk/js?client-id=AUpeByswiPPzmF_Nzd0WeZUYcuqcQk-LYR-LVM3YZ35UP18iCSX7gswObTDZA9kdgxW2WOWADOQNAM1X"></script>
+
+        <script>
+            var price = document.querySelector('#payments').textContent;
+      
+            console.log("price", price)
+            // Render the PayPal button into #paypal-button-container
+            paypal.Buttons({
+
+                // Set up the transaction
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: price,
+                                currency: "USD"
+                            }
+                        }]
+                    });
+                },
+
+                // Finalize the transaction
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+                        // Successful capture! For demo purposes:
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                        var transaction = orderData.purchase_units[0].payments.captures[0];
+                        //window.location.replace("{% url 'login_view' %}");
+                        alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                        
+                        const element = document.getElementById('submit-button');
+                        element.style.display = 'block';
+                        // Replace the above to show a success message within this page, e.g.
+                        // const element = document.getElementById('paypal-button-container');
+                        // element.innerHTML = '';
+                        // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                        
+                    });
+                }
+
+
+            }).render('#paypal-button-container');
+        </script>
+</body>
+
+</html>
+    

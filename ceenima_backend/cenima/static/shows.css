@@ -1,0 +1,25 @@
+.movie{
+    display: flex;
+    height: 100vh;
+    background-color: #18181A;
+
+}
+.about-section{
+    width: 50%;
+    height: 80%;
+    border-style: solid;
+    
+}
+.image-section{
+    width: 50%;
+    height: 80%;
+    border-style: solid;
+}
+
+.img-container{
+    margin-left: 50px;
+    height: 80%;
+    border-style: solid;
+    width: 100%;
+}
+

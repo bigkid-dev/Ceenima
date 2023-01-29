@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+
+</head>
+<body>
+    <p>hello<P>
+    <ul>
+        <!--html templating allows us to run some python in html. object_list represent all data in a column
+        in our database table (Demo_project_Db), basically we are iterating  over it as in for loops -->
+        <ol>
+        {% for object in object_list %}
+                
+                <li>{{object.title}}</li>
+                <div style="border-style: solid; width: 50%; overflow: scroll; height: 100px" >
+                    {{object.description}}
+                    {{ object.time_showing }}
+                </div>
+
+
+            <br>
+        {% endfor %}
+        </ol>
+    </ul>
+
+    <script></script>
+</body>
+</html>

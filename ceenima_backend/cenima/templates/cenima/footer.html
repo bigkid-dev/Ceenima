@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'footer.css' %}" rel="stylesheet">
+</head>
+
+<style>
+    
+</style>
+{% load static %}
+                
+                    <img src="{% static 'assets/crop 5(3).jpg ' %}" height="100%" width="100%">
+
+<body>
+     {% block body_block %}
+    
+    {% endblock body_block %}
+
+    
+
+    
+    <section id="footer">
+        <div class="logo-area">
+            <p class='logo-text'>Ceenima</p>
+            
+        </div>
+        <div class="company-area">
+            <h3>COMPANY</h3>
+            <p>About us</p>
+            <p>Ticket sales and online booking</p>
+            <p>Cinemas</p>
+            <h3 id="lower-text">Legal</h3>
+            <p>Privacy Policy</p>
+        </div>
+        <div class="contact-area">
+            <h3>CONTACT</h3>
+            <p>Self Help</p>
+            <p>Contact Us</p>
+            <p>Advertise With us</p>
+        </div>
+        <div class="social-media">
+            <div>
+                <h3>FOLLOW US ON</h3>
+            </div>
+            <div class="media">
+                <div id="ig-logo">
+                    <img src="{% static 'assets/ig.jpg' %}" height="100%" width="100%">
+                </div> 
+                <div id="fb-logo">
+                    <img src="{% static 'assets/download.png' %}" height="100%" width="100%">
+                </div> 
+                <div id="twitter-logo">
+                    <img src="{% static 'assets/twitter.png' %}" height="100%" width="100%">
+                </div> 
+            </div>
+        </div>
+    </section>
+    <script></script>
+</body>
+</html>

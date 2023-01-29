@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+
+</head>
+<body>
+    {% csrf_token %}
+    <form method="POST" class="post-form" action="/emp">
+        <label for="title">title</label>
+        {% comment %} <input id="title"> {% endcomment %}
+        <div>{{ form.title }}</div>
+
+        <label for="description">description</label>
+        <div>{{ form.description }}</div>
+        <label for="Summary">Summary</label>
+        <div>{{ form.summary }}</div>
+        <label for="Link">Link</label>
+        <div>{{ form.link }}</div>
+        <label for="image_link">image_link</label>
+        <div>{{ form.image_link }}</div>
+        <label for="time_showing">time-showing</label>
+        <div type="datetime">{{ form.time_showing }}</div>
+        <label for="Second_time_showing">Second_time_showing</label>
+        <div type="datetime">{{ form.second_time_showing }}</div>
+        <label for="third_time_showing">third_time_showing</label>
+        <div type="datetime">{{ form.third_time_showinng}}</div>
+        <label for="fourth_time_showing">fourth_time_showing</label>
+        <div type="datetime">{{ form.fourth_time_showing }}</div>
+    </form>
+    <button type="submit">Submit</button>
+    <script></script>
+</body>
+</html>

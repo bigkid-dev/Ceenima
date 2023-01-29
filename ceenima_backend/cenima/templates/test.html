@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static '/css/shows.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+     
+
+          {% comment %} End of footer {% endcomment %}
+
+    </style>
+    
+    {% for show in show %}
+
+    {% comment %} NavBar {% endcomment %}
+    <div class="navbar">
+        <div class="logo">
+            <p class='logo-text'>Ceenima</p>
+        </div>
+        <div class="navigations">
+            <a>Get Tickets</a>
+            <a>Membership</a>
+            <a>Booking & Events</a>
+            <a>About Us</a>
+            <a>Prices & Promos</a>
+        </div>
+        <div class='routes'>
+            <div class ='signIn'>
+                <p class='sign-in'>Sign In</p>
+            </div>
+            <div class='cart'>
+                <div >
+                    <img></img>
+                </div>
+                <div>
+                    <p>Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} End of navbar {% endcomment %}
+
+        <section>
+            <div class="movie">
+                <div class="about-section">
+                    <h3 class='title'>{{ show.title }}</h3>
+                    <p class='genre'>{{ show.description}}</p>
+                    <p class='summary'>{{ show.summary }}</p>
+                    <button id='get-ticket-btn'>Get ticket</button>    
+                </div>
+
+                <div class="image-section">
+                    <div class='img-cont'>
+                        <img src={{ show.image_link }}>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% comment %} footer {% endcomment %}
+        <section id="footer">
+            <div class="logo-area">
+                <p class='logo-text'>Ceenima</p>
+                
+            </div>
+            <div class="company-area">
+                <h3>COMPANY</h3>
+                <p>About us</p>
+                <p>Ticket sales and online booking</p>
+                <p>Cinemas</p>
+                <h3 id="lower-text">Legal</h3>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="contact-area">
+                <h3>CONTACT</h3>
+                <p>Self Help</p>
+                <p>Contact Us</p>
+                <p>Advertise With us</p>
+            </div>
+            <div class="social-media">
+                <div>
+                    <h3>FOLLOW US ON</h3>
+                </div>
+                <div class="media">
+                    <div id="ig-logo">
+                    </div> 
+                    <div id="fb-logo">
+                    </div> 
+                    <div id="twitter-logo">
+                    </div> 
+                </div>
+            </div>
+        </section>
+        {% comment %} End of footer {% endcomment %}
+
+
+        <div class="book-a-ticket">
+            <button id="close-tag">
+                <p class="symbol">x</p>
+            </button>  
+            <div class="left">
+                <div class="confirm">
+                    <p class="pee">CONFIRM AND PAY</p>
+                    <p class="view">Viewing date</p>
+                    <div class="viewing-date">
+                        <div class="dates">
+                            <p class="box-text">{{show.date_showing}}</p>
+                        </div>
+                        <div class="dates">
+                            <p class="box-text">{{show.second_date_showing}}</p>
+                            
+                        </div>
+                        <div class="dates">
+                            <p class="box-text">{{show.third_date_showing}}</p>
+                        </div>
+                        <div class="dates">
+                            <p class="box-text">{{show.fourth_date_showing}}</p>
+                        </div>
+                    </div>
+                    <p class="times">Time</p>
+                    <div class="viewing-time">
+                        <div class="time">
+                            <p class="box-text">{{show.time_showing}}</p>
+                        </div>
+                        <div class="time">
+                            <p class="box-text">{{show.second_time_showing}}</p>
+                        </div>
+                        <div class="time">
+                            <p class="box-text">{{show.third_time_showing}}</p>
+                        </div>
+                        <div class="time">
+                            <p class="box-text">{{show.fourth_time_showing}}</p>
+                        </div>
+                    </div>
+                    <form method="post">
+                       {% csrf_token %}
+                       <div id="form">
+                            <div class="form-left">
+                                <p class="times">Number of Tickets</p>
+                                <div class="viewing-date">
+                                    <div>
+                                        <p class="no-of-tickets">WEEKEND ALDULT(#{{show.price}})</p>
+                                    </div>
+                                    <div class="input">
+                                        <input class="tickets" type="number" />
+                                    </div>
+                                </div>
+                                <div class="viewing-date">
+                                    <div id="child-tickets">
+                                        <p class="no-of-tickets">WEEKEND CHILDREN({{show.price}})</p>
+                                    </div>
+                                    <div class="input" >
+                                        <input class="tickets" type="number"/>
+                                    </div>
+                                </div>
+                                <button type="submit" id="pay-button"><a href="/pay?id={{show.id}}">PAY</a></button>
+                            </div>
+                            <div class="form-right">
+                                <div class="info">
+                                    <div class="viewing-date">
+                                        <div class="name">
+                                            <div>
+                                                <p class="text">Name</p>
+                                            </div>
+                                            <div class="input-text">
+                                                <input type="name"/>
+                                            </div>
+                                        </div>   
+                                        <div class="email">
+                                            <p class="text">Email</p>
+                                            <div class="input-text">
+                                                <input type="email"/>
+                                            </div>
+                                        </div> 
+                                    </div> 
+                                    <div class="phone-no">
+                                        <p class="text">Phone Number</p>
+                                        <div class="input-text">
+                                            <input  type="tel"/>
+                                        <div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>   
+                    </form>
+
+                </div>
+
+            </div>
+            
+            <div class='right'>
+                          
+            </div>
+
+        </div>
+               
+        {% endfor %}
+    {% load static %}
+    <script src="{% static '/js/index.js' %}">
+        
+    </script>
+</body>
+</html>

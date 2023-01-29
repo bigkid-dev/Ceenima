@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+{% extends 'cenima/navbar.html' %}
+{% block show %}
+
+
+
+
+<style>
+    body{
+        background-color: #18181A;
+        paddding:0;
+        margin:0;
+    }
+    #show-section{
+        background-color: #18181A;
+      }
+      
+      .date-showing{
+        display: flex;
+        width: 40%;   
+        height: 100px;
+      
+      }
+      .date-box{
+        width: 20%;
+        border-style: solid;
+        border-color:#F3EFEF;
+        height: 70px;
+        border-radius: 15px;
+        margin-right: 10px;
+      }
+      .wrapper{
+        display: flex;
+  
+        align-content: space-between;
+        justify-content: space-between;
+        
+      }
+      .top{
+        display: flex;
+        margin-bottom: 50px;
+        
+      }
+      .main-content{
+        
+      }
+      .below{
+        display: flex;
+      }
+      .showing{
+        display: flex;
+        
+      }
+      .img{
+        width: 50%;
+        height: 200px;
+        border-style: solid;
+        border-radius: 15px;
+      }
+      .about{
+        width: 50%;
+      }
+      .intro{
+        color:rgb(245, 194, 128);
+        
+      }
+      .title{
+        color: #F3EFEF;
+      }
+      .text{
+        color:#F3EFEF;
+        
+      }
+      
+</style>
+
+    
+    <section id="show-section">
+    <p>hello<P>
+        
+        {% comment %} {% for object in object_list %}
+        {{ object.id }} {% endcomment %}
+        <!--html templating allows us to run some python in html. object_list represent all data in a column
+        in our database table (Demo_project_Db), basically we are iterating  over it as in for loops -->
+        <a target="_blank" href="{% url 'test' %}?id={{ object.id }}">Hello
+            {% comment %} <div class="page" style="border-style:solid; height:50px; width=50px;">
+                
+            </div> {% endcomment %}
+        </a>
+        {% comment %} {% endfor %} {% endcomment %}
+
+        
+        
+        
+
+      
+      
+          {% for object in object_list %}
+          <div class="main-content">
+              <div class="top">
+                  <div class="showing">
+                      <div class="img">
+                          <img src="{{ object.image_link }}" height="100%" width="100%">
+                      </div>
+                      <div class="about">
+                          <div>
+                              <h6 class="intro">2022 ACTION/ADVENTURE 2H 15MIN</h6>
+                              <a target="_blank" href="{% url 'test' %}?id={{ object.id }}"><p class="title">{{ object.title }}</p></a>
+                              <p class="text">Tad would love for his archeologist colleagues to accept him as one of their own, but he always messes everything up...</p>
+                          </div>
+                          <div class="time">
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                              <div></div>
+                          
+                          </div>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          {% endfor %}
+        </div>
+        
+        {% endblock show %}
+    </section>
+
+    <script></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</html>

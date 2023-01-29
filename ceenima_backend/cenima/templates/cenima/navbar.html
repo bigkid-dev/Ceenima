@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/navbar.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+<style>
+    @media only screen and (max-width: 600px){
+        .navbar{
+          margin: auto;
+          display: flex;
+          height: 60px;
+          top: 57px;
+          border-radius: 0px;
+          padding: 20px 0px 20px 0px;
+          background-color: #c24747;
+        }
+        #footer{
+            display: flex;
+            background-color: #e71414;
+        }
+    }
+</style>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <p class='logo-text'>Ceenima</p>
+        </div>
+        <div class="navigations">
+            <a id="link" href="Lists" style="text-decoration: none;">Get Tickets</a>
+            <a class="link" href="show" style="text-decoration: none;">Membership</a>
+            <a class="link" href="#" style="text-decoration: none;">Booking & Events</a>
+            <a class="link" href="#" style="text-decoration: none;">About Us</a>
+            <a class="link" href="#" style="text-decoration: none;">Prices & Promos</a>
+        </div>
+        <div class='routes'>
+            <div class ='signIn'>
+                <a href="{% url 'signup_view' %}"><p class='sign-in'>Sign In</p></a>
+            </div>
+            <div class='cart'>
+                <div >
+                    <img></img>
+                </div>
+                <div>
+                    <p>Cart</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block show %}
+    {% endblock show %}
+
+    <section id="footer">
+      <div class="logo-area">
+          <p class='logo-text'>Ceenima</p>
+          
+      </div>
+      <div class="company-area">
+          <h3>COMPANY</h3>
+          <p>About us</p>
+          <p>Ticket sales and online booking</p>
+          <p>Cinemas</p>
+          <h3 id="lower-text">Legal</h3>
+          <p>Privacy Policy</p>
+      </div>
+      <div class="contact-area">
+          <h3>CONTACT</h3>
+          <p>Self Help</p>
+          <p>Contact Us</p>
+          <p>Advertise With us</p>
+      </div>
+      <div class="social-media">
+          <div>
+              <h3>FOLLOW US ON</h3>
+          </div>
+          <div class="media">
+            <div id="ig-logo">
+                <img src="{% static 'assets/ig.jpg' %}" height="100%" width="100%">
+            </div> 
+            <div id="fb-logo">
+                <img src="{% static 'assets/download.png' %}" height="100%" width="100%">
+            </div> 
+            <div id="twitter-logo">
+                <img src="{% static 'assets/twitter.png' %}" height="100%" width="100%">
+            </div> 
+          </div>
+      </div>
+  </section>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous">
+    </script>
+</body>
+</html> 
+
+
