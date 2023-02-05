@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 
-{% extends 'cenima/navbar.html' %}
-{% block show %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Blog Template · Bootstrap v5.2</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/">
+</head>
 
 <style>
     body{
         background-color: #18181A;
         padding:0;
         margin:0;
+        height: 100vh;
     }
     
     .form-area{
-        width: 50%;
-        margin: auto;
-        height: 400px;
+
     }
     .email-input{
         margin-top: 100px;
         display: flex;
         margin: 30px;
+        width: 90%;
     }
     .password-input{
         display: flex;
         margin: 30px;
     }
     .control{
-        padding-top: 50px;
     }
     input{
         width: 250px;
@@ -36,7 +44,7 @@
         width: 15%;
     }
     .input{
-        width: 50%;
+        width: 90%;
     }
     #login-button{
         margin-top: 30px;
@@ -53,19 +61,111 @@
     #here{
         text-decoration: none;
     }
-</style>    
-    <section id="login">
-        <form method="POST">
+    #footer{
+        margin-top: 400px;
+    }
+    @media only screen and (min-width: 600px){
+        .form-area{
+            width: 100%;
+            margin: auto;
+            height: 400px;
+            height:70vh;
+        }
+        .control{
+            width: 100%;
+            
+        }
+        
+    }
+    {% comment %} nav {% endcomment %}
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+</style>
+<body class="text-center w-80 m-auto">
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5" >
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">CEENIMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shows' %}">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book' %}">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    </ul>
+                    <div class="d-flex" role="search">
+                        <a href="{% url 'signup_view' %}"><button class="btn btn-outline-success me-2" type="submit">Sign Up</button></a>
+                        <a href="{% url 'signin_view' %}"><button class="btn btn-outline-success" type="submit">Login</button></a>
+                    </div>
+                </ul>
+            </div>
+    
+        </nav>
+    </div>
+
+    <div class="form-signin w-60 w-lg-40 m-auto" style="margin-top: 100px;">
+        {% comment %} <form method="POST">
             {% csrf_token %}
-            <div class="form-area">
-                <div class="control">
+            <div class="container form-area" style="width: 100%; ">
+                <div class="container control">
                     <div class="email-input">
                         
                         <div class="label">
                             <p>Email<p>
                         </div>
-                        <div class="input">
-                            <input type="username" name="username" id="username" placeholder="e.g jsmith" required>
+                        <div class="input" >
+                            <input type="username" style="width: 400px; height: 70px;" name="username" id="username" placeholder="e.g jsmith" required>
                         </div>       
                     </div>
                     <div class="password-input">
@@ -73,7 +173,7 @@
                             <p>password<p>
                         </div>
                         <div class="input">
-                            <input type="password" name="password" id="password" required>
+                            <input type="password" name="password" style="width: 400px; height: 70px;" id="password" required>
                         </div>  
                     </div>
                     <div class="password-input">
@@ -89,12 +189,45 @@
                     </div>
                 </div>      
             </div>
-        </form>
-        {% endblock show %}
-    </section>
+        </form> {% endcomment %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="container control  w-75 w-lg-50" style="margin-top: 100px;">
+                <div class="form-floating">
+                    
+                    <input type="username" name="username" class="form-control" id="floatingInput" placeholder="johnbull">
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating mt-5">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+            
+                <div class="checkbox mb-3 mt-5">
+                    
+                </div>
+                
 
-    <script></script>
+                
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                <p id="forgot-text" style="margin-top: 20px;">Dont have an account  click <a id="here" href="{% url 'signup_view' %}">...here</a></p>
+               
+                
+            </div>
+        </form>
+    </div>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="{% url 'shows' %}" class="nav-link px-2 text-muted">Tickets</a></li>
+            <li class="nav-item"><a href="{% url 'book' %}" class="nav-link px-2 text-muted">Booking</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted">&copy; 2023 CEENIMA, Inc</p>
+        </footer>
+      </div>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CEENIMA </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <style>
+        #central{
+            width: 50%;
+            height: 300px;
+            background-color: #18181A;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            padding-top: 50px;
+        }
+        input{
+            
+            width: 200px;
+        }
+        #text{
+            margin-top: 100px;
+            color: #ffffff;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #text-area{
+            margin-top: 100px;
+        }
+
+          {% comment %} End of footer {% endcomment %}
+
+    </style>
+
+    <div>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark mb-5" >
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">CEENIMA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'shows' %}">Tickets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'book' %}">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    </ul>
+                    <div class="d-flex" role="search">
+                        <a href="{% url 'signup_view' %}"><button class="btn btn-outline-success me-2" type="submit">Sign Up</button></a>
+                        <a href="{% url 'signin_view' %}"><button class="btn btn-outline-success" type="submit">Login</button></a>
+                    </div>
+            </div>
+
+        </nav>
+    </div>
+    {% load static %}
+    <div class="col-xxl-8 py-5 mt-5" style="">
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+              <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 mb-3">BOOK US</h1>
+                <p class="col-lg-10 fs-4">For your events and outings ceenima offers an affordable price, Book a session with us by sending us a mail </p>
+              </div>
+              <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-light">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingPassword" placeholder="Message">
+                    <label for="floatingPassword">Message</label>
+                  </div>
+                  
+                  <button class="w-100 btn btn-lg btn-primary" type="submit">Send</button>
+                  <hr class="my-4">
+                  
+                </form>
+              </div>
+            </div>
+    </div>
+    <div class="container">
+        <footer class="py-3 my-4">
+          <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="{% url 'shows' %}" class="nav-link px-2 text-muted">Tickets</a></li>
+            <li class="nav-item"><a href="{% url 'book' %}" class="nav-link px-2 text-muted">Booking</a></li>
+            <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
+          </ul>
+          <p class="text-center text-muted">&copy; 2023 CEENIMA, Inc</p>
+        </footer>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

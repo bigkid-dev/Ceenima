@@ -12,7 +12,6 @@ from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic import TemplateView
 
-from rest_framework import generics
 from .models import Shows, Upcoming_Movies, Cenima_Show, New_movies
 from .serializers import ShowSerializer
 
@@ -31,9 +30,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 
 # to handle the mail
-from django.core import mail
-from django.template.loader import render_to_string
-from django.utils.html import strip_tags
+
 
 # messages
 from django.contrib import messages
@@ -41,8 +38,7 @@ from django.contrib.auth.decorators import login_required
 
 
 import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+
 
 # transaction id generator
 import random
@@ -285,7 +281,7 @@ def payments(request):
       name = request.user.username
       generateCode()
       create_pdf(movie_title, location, ticket_id, name)
-      mail_sender()
+      
 
     return render(request,'thank_you.html', {'path': thanks(request)})
 
@@ -307,8 +303,7 @@ def login_page(request):
     else:
       messages.info(request, "invalid username or password")
       
-  else:
-    return render(request, 'auth/login.html')
+  return render(request, 'auth/login.html')
 
 
 
@@ -324,7 +319,12 @@ def signup(request):
   return render(request, 'auth/signup.html')
 
 
+def about_us_page(request):
+  return render(request, 'about-us.html')
 
+
+def booking_page(request):
+  return render(request, 'booking.html')
 
 
 def send_email(user, pwd, recipient, subject, body):

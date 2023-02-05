@@ -48,76 +48,41 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tickets</a>
+                    <a class="nav-link" href="{% url 'shows' %}">Tickets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Membership</a>
+                    <a class="nav-link" href="{% url 'book' %}">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled">Booking</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 </ul>
                 <div class="d-flex" role="search">
-                    <button class="btn btn-outline-success me-2" type="submit">Sign Up</button>
-                    <button class="btn btn-outline-success" type="submit">Login</button>
+                    <a href="{% url 'signup_view' %}"><button class="btn btn-outline-success me-2" type="submit">Sign Up</button></a>
+                    <a href="{% url 'signin_view' %}"><button class="btn btn-outline-success" type="submit">Login</button></a>
                 </div>
             </div>
 
         </nav>
     </div>
-    {% comment %} End of navbar {% endcomment %}
-    <center>
-        <div id="central">
-            <div id="text-area">
-                <h2 id="text">Thank you, download your tickets below</h2>
+    {% load static %}
+    <div class="col-xxl-8 py-5 mt-5" style="background-image:url({% static 'assets/background.jpg' %});">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-10 col-sm-8 col-lg-6">
+          </div>
+          <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3 text-light mx-2">ABOUT US</h1>
+            <p class="lead text-light mx-2">CEENIMA for decade has been the best movie theatre in the country creating epic cinema experiences to our customers. We are dedicated to making each visit memorable.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start text-light mx-2">
+              <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Get tickets</button>
             </div>
-            <a href="{{path}}" download><input type="submit" value="download your tickets" ></a>
+          </div>
         </div>
-    <center>
-    
-        {% comment %} footer {% endcomment %}
-        <section id="footer">
-            <div class="logo-area">
-                <p class='logo-text'>Ceenima</p>
-                
-            </div>
-            <div class="company-area">
-                <h3>COMPANY</h3>
-                <p>About us</p>
-                <p>Ticket sales and online booking</p>
-                <p>Cinemas</p>
-                <h3 id="lower-text">Legal</h3>
-                <p>Privacy Policy</p>
-            </div>
-            <div class="contact-area">
-                <h3>CONTACT</h3>
-                <p>Self Help</p>
-                <p>Contact Us</p>
-                <p>Advertise With us</p>
-            </div>
-            <div class="social-media">
-                <div>
-                    <h3>FOLLOW US ON</h3>
-                </div>
-                <div class="media">
-                    <div id="ig-logo">
-                    </div> 
-                    <div id="fb-logo">
-                    </div> 
-                    <div id="twitter-logo">
-                    </div> 
-                </div>
-            </div>
-        </section>
-
-        {% comment %} End of footer {% endcomment %}
-        <div class="container">
+    </div>
+    <div class="container">
         <footer class="py-3 my-4">
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="{% url 'homepage' %}" class="nav-link px-2 text-muted">Home</a></li>
@@ -125,12 +90,9 @@
             <li class="nav-item"><a href="{% url 'book' %}" class="nav-link px-2 text-muted">Booking</a></li>
             <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-muted">About</a></li>
           </ul>
-          <p class="text-center text-muted">&copy; 2022 CEENIMA, Inc</p>
+          <p class="text-center text-muted">&copy; 2023 CEENIMA, Inc</p>
         </footer>
-      </div>       
-    {% load static %}
-    <script src="{% static '/js/download.js' %}">
-        
-    </script>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -11,11 +11,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
 from pathlib import Path
-import environ
 
 
-env = environ.Env()
-environ.Env.read_env()
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livesync',
     'django.contrib.staticfiles',
     'cenima.apps.CenimaConfig',
     'rest_framework',
@@ -58,6 +58,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE_CLASSES = (
+    'livesync.core.middleware.DjangoLiveSyncMiddleware',
+)
 
 ROOT_URLCONF = 'ceenima_backend.urls'
 
@@ -159,10 +162,3 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
 ]
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'millenniumbest777@gmail.com'
-EMAIL_HOST_PASSWORD = 'cexmopizwsqmipmh'
-EMAIL_PORT = 487
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
